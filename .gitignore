@@ -1,0 +1,27 @@
+# Compiled
+target/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.classpath
+*.project
+.settings/
+.nbproject/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
+*.tmp
+
+# Credentials (nunca subir claves reales)
+**/application.properties.local
+**/secrets.*
+.env

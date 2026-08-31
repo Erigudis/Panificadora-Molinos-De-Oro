@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.panaderia.controller.ProductoController"
+            prefWidth="980" prefHeight="620">
+
+    <!-- ========== BARRA SUPERIOR ========== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" style="-fx-background-color: #003366; -fx-padding: 12 16 12 16;">
+            <Label text="Panificadora Molinos de Oro – Catálogo de productos"
+                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="v2" style="-fx-text-fill: #e67e22; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- ========== CONTENIDO CENTRAL ========== -->
+    <center>
+        <SplitPane dividerPositions="0.58" BorderPane.alignment="CENTER">
+            <items>
+
+                <!-- Tabla + búsqueda / filtro -->
+                <VBox spacing="8" style="-fx-padding: 12;">
+                    <Label text="Listado de productos" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #003366;"/>
+
+                    <!-- Barra de búsqueda y filtro (NUEVO en v2) -->
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="Buscar:" style="-fx-font-size: 12px;"/>
+                        <TextField fx:id="txtBuscar" promptText="Nombre del producto..." prefWidth="160"
+                                   onKeyReleased="#onBuscar"/>
+                        <Label text="Categoría:" style="-fx-font-size: 12px;"/>
+                        <ComboBox fx:id="cmbFiltroCategoria" promptText="Todas" prefWidth="120"
+                                  onAction="#onFiltrar"/>
+                        <Button text="Limpiar" onAction="#onLimpiarFiltros"
+                                style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
+                    </HBox>
+
+                    <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colNombre" text="Nombre" prefWidth="140"/>
+                            <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="90"/>
+                            <TableColumn fx:id="colPrecio" text="Precio" prefWidth="70"/>
+                            <TableColumn fx:id="colStock" text="Stock" prefWidth="60"/>
+                            <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="150"/>
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                    </TableView>
+                </VBox>
+
+                <!-- Formulario -->
+                <VBox spacing="10" style="-fx-padding: 12;">
+                    <Label text="Formulario de producto" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #003366;"/>
+
+                    <GridPane hgap="8" vgap="8">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="90" prefWidth="90"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="150"/>
+                        </columnConstraints>
+
+                        <Label text="Nombre *" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtNombre" promptText="Ej: Pan francés" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Categoría *" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cmbCategoria" promptText="Seleccione" maxWidth="Infinity"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Precio *" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPrecio" promptText="0.00" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Stock *" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtStock" promptText="0" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Descripción" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextArea fx:id="txtDescripcion" promptText="Opcional" prefRowCount="3" wrapText="true"
+                                  GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 8 0 0 0;">
+                        <Button fx:id="btnNuevo" text="Nuevo" onAction="#onNuevo"
+                                style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-pref-width: 90;"/>
+                        <Button fx:id="btnGuardar" text="Guardar" onAction="#onGuardar"
+                                style="-fx-background-color: #1a5276; -fx-text-fill: white; -fx-pref-width: 90;"/>
+                        <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar"
+                                style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-pref-width: 90;"/>
+                    </HBox>
+
+                    <!-- Ajuste de stock (NUEVO en v2) -->
+                    <Separator/>
+                    <Label text="Ajuste de stock (v2)" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #1a5276;"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Label text="Cantidad:"/>
+                        <TextField fx:id="txtCantidadStock" promptText="0" prefWidth="70"/>
+                        <Button text="+ Entrada" onAction="#onEntradaStock"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-pref-width: 90;"/>
+                        <Button text="- Salida" onAction="#onSalidaStock"
+                                style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-pref-width: 90;"/>
+                    </HBox>
+                    <Label text="Seleccione un producto de la tabla y use Entrada/Salida"
+                           style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+
+                    <Label text="* Campos obligatorios" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+                </VBox>
+
+            </items>
+        </SplitPane>
+    </center>
+
+    <!-- ========== PIE ========== -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f4f6f7; -fx-padding: 6 12 6 12;">
+            <Label text="Diseño de Software 7547  |  CENESTUR  |  v2 – Catálogo + búsqueda + ajuste de stock"
+                   style="-fx-text-fill: #555; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
