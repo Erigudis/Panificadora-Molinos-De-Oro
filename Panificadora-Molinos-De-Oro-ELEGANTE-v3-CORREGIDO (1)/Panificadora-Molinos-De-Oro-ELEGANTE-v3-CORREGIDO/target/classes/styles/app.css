@@ -1,0 +1,234 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #f7f1ea;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ==========================================================================
+   PANEL LATERAL (SIDEBAR) Y NAVEGACIÓN
+   ========================================================================== */
+.sidebar {
+    -fx-background-color: #3a160f;
+    -fx-padding: 22;
+}
+
+.brand-title {
+    -fx-text-fill: #f7d477;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #f4e8d7;
+    -fx-font-size: 11px;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f9eee3;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 11 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #6d2a1e;
+}
+
+.nav-button.active {
+    -fx-background-color: #a72e24;
+    -fx-text-fill: #fff7e5;
+}
+
+/* ==========================================================================
+   BARRA SUPERIOR (TOPBAR) Y TITULARES
+   ========================================================================== */
+.topbar {
+    -fx-background-color: #fffaf4;
+    -fx-border-color: #eadbca;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 15 22;
+}
+
+.page-title {
+    -fx-text-fill: #3a160f;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.page-subtitle {
+    -fx-text-fill: #806f63;
+    -fx-font-size: 12px;
+}
+
+/* ==========================================================================
+   CONTENEDORES (CARDS) Y ESTADÍSTICAS
+   ========================================================================== */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 16;
+    -fx-border-color: #eadbca;
+    -fx-border-radius: 16;
+    -fx-padding: 18;
+    /* Corregido: Se agregó '#' al color rgba y se optimizó la sombra para JavaFX */
+    -fx-effect: dropshadow(three-pass-box, rgba(58, 22, 15, 0.08), 14, 0.0, 0, 4);
+}
+
+.card-title {
+    -fx-text-fill: #3a160f;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.label-soft {
+    -fx-text-fill: #806f63;
+    -fx-font-size: 12px;
+}
+
+.stat-number {
+    -fx-text-fill: #3a160f;
+    -fx-font-size: 27px;
+    -fx-font-weight: bold;
+}
+
+.stat-label {
+    -fx-text-fill: #806f63;
+    -fx-font-size: 12px;
+}
+
+.alert-label {
+    -fx-text-fill: #a72e24;
+    -fx-font-weight: bold;
+}
+
+.badge {
+    -fx-background-radius: 20;
+    -fx-padding: 5 10;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   CAMPOS DE ENTRADA (INPUTS)
+   ========================================================================== */
+.text-field, .combo-box, .date-picker {
+    -fx-background-color: #fffdfb;
+    -fx-border-color: #d9c5b3;
+    -fx-border-radius: 9;
+    -fx-background-radius: 9;
+    -fx-padding: 9 10;
+}
+
+.text-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #c8952e;
+    -fx-border-width: 1.5;
+}
+
+/* ==========================================================================
+   BOTONES EN GENERAL
+   ========================================================================== */
+.primary {
+    -fx-background-color: #8f241d;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.primary:hover {
+    -fx-background-color: #aa3027;
+}
+
+.gold {
+    -fx-background-color: #c8952e;
+    -fx-text-fill: #32160f;
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.secondary {
+    -fx-background-color: #eee2d5;
+    -fx-text-fill: #4a281f;
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.danger {
+    -fx-background-color: #b73a32;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.success {
+    -fx-background-color: #5c8b57;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+.warning {
+    -fx-background-color: #d58b32;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 9;
+    -fx-padding: 10 17;
+    -fx-cursor: hand;
+}
+
+/* ==========================================================================
+   TABLAS DE DATOS (TABLE VIEW) - Corregido para evitar textos invisibles
+   ========================================================================== */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #eadbca;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #4a2118;
+    -fx-background-radius: 12 12 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #fff5e7;
+    -fx-font-weight: bold;
+}
+
+/* Corregidos los selectores de filas para aplicar bien el contraste del texto */
+.table-row-cell:selected {
+    -fx-background-color: #f1dfb4;
+}
+.table-row-cell:selected .text {
+    -fx-fill: #3a160f;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #fbf1df;
+}

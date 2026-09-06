@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?><?import javafx.scene.control.*?><?import javafx.scene.image.*?><?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.panaderia.controller.DashboardController" styleClass="root">
+ <left><VBox prefWidth="235" spacing="9" styleClass="sidebar">
+  <VBox alignment="CENTER" spacing="4"><ImageView fitWidth="150" fitHeight="95" preserveRatio="true"><image><Image url="@logo-molinos.png"/></image></ImageView><Label text="MOLINO DE ORO" styleClass="brand-title"/><Label text="PANADERÍA Y PASTELERÍA" styleClass="brand-subtitle"/></VBox>
+  <Separator style="-fx-opacity:.2;"/><Label text="MENÚ PRINCIPAL" style="-fx-text-fill:#cbb4a5;-fx-font-size:10px;-fx-font-weight:bold;-fx-padding:8 4 2 4;"/>
+  <Button fx:id="btnProductos" text="▣   Productos" onAction="#productos" styleClass="nav-button" maxWidth="Infinity"/><Button fx:id="btnCategorias" text="▤   Categorías" onAction="#categorias" styleClass="nav-button" maxWidth="Infinity"/><Button fx:id="btnStock" text="↕   Movimientos de stock" onAction="#stock" styleClass="nav-button" maxWidth="Infinity"/><Button fx:id="btnPedidos" text="▰   Pedidos de pasteles" onAction="#pedidos" styleClass="nav-button" maxWidth="Infinity"/><Button fx:id="btnConsulta" text="⌕   Consulta rápida" onAction="#consulta" styleClass="nav-button" maxWidth="Infinity"/>
+  <Region VBox.vgrow="ALWAYS"/><VBox spacing="4" style="-fx-padding:10 0 0 0;"><Label fx:id="lblUsuario" text="Usuario" style="-fx-text-fill:#fff4df;-fx-font-weight:bold;"/><Label fx:id="lblRol" text="Rol" style="-fx-text-fill:#c8952e;-fx-font-size:11px;"/><Button text="Cerrar sesión" onAction="#salir" styleClass="nav-button" maxWidth="Infinity"/></VBox>
+ </VBox></left>
+ <top><HBox spacing="10" alignment="CENTER_LEFT" styleClass="topbar"><VBox><Label text="Panel de gestión" styleClass="page-title"/><Label text="Todo lo importante de la panificadora, en un solo lugar" styleClass="page-subtitle"/></VBox><Region HBox.hgrow="ALWAYS"/><Label text="● Sistema activo" style="-fx-text-fill:#5c8b57;-fx-font-weight:bold;"/></HBox></top>
+ <center><StackPane fx:id="contenido" style="-fx-padding:22;"/></center>
+</BorderPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?><?import javafx.scene.control.*?><?import javafx.scene.image.*?><?import javafx.scene.layout.*?>
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.panaderia.controller.LoginController" styleClass="root">
+ <HBox maxWidth="900" maxHeight="560" styleClass="card">
+  <VBox prefWidth="420" alignment="CENTER" spacing="12" style="-fx-background-color:#3a160f;-fx-background-radius:16 0 0 16;-fx-padding:28;">
+   <ImageView fitWidth="300" fitHeight="210" preserveRatio="true"><image><Image url="@logo-molinos.png"/></image></ImageView>
+   <Label text="MOLINO DE ORO" style="-fx-text-fill:#f7d477;-fx-font-size:29px;-fx-font-weight:bold;"/>
+   <Label text="PANADERÍA Y PASTELERÍA" style="-fx-text-fill:#fff4df;-fx-font-size:14px;-fx-font-weight:bold;"/>
+   <Label text="Gestión de productos, stock y pedidos" wrapText="true" textAlignment="CENTER" style="-fx-text-fill:#d9c5b3;-fx-font-size:12px;"/>
+  </VBox>
+  <VBox prefWidth="380" spacing="14" alignment="CENTER_LEFT" style="-fx-padding:45;">
+   <Label text="Bienvenido" styleClass="page-title"/><Label text="Ingresa para administrar la panificadora" styleClass="page-subtitle"/>
+   <VBox spacing="6"><Label text="Usuario" styleClass="label-soft"/><TextField fx:id="txtUsuario" promptText="Ej. admin" styleClass="text-field"/></VBox>
+   <VBox spacing="6"><Label text="Contraseña" styleClass="label-soft"/><PasswordField fx:id="txtClave" promptText="••••••••" styleClass="text-field"/></VBox>
+   <VBox spacing="6"><Label text="Rol" styleClass="label-soft"/><ComboBox fx:id="cmbRol" maxWidth="Infinity" styleClass="combo-box"/></VBox>
+   <Label fx:id="lblError" wrapText="true" style="-fx-text-fill:#b73a32;-fx-font-size:12px;-fx-font-weight:bold;"/>
+   <Button text="Entrar al sistema  →" onAction="#onEntrar" maxWidth="Infinity" styleClass="primary"/>
+   <Label text="Demo: admin / admin123 · producción / 1234 · mostrador / 1234" wrapText="true" style="-fx-text-fill:#9a887b;-fx-font-size:10px;"/>
+  </VBox>
+ </HBox>
+</StackPane>

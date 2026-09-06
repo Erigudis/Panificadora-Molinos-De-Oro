@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?><?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.panaderia.controller.StockController"
+            styleClass="root">
+
+    <VBox spacing="18"
+          AnchorPane.topAnchor="0"
+          AnchorPane.rightAnchor="0"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0">
+
+        <!-- Encabezado de la página -->
+        <VBox spacing="3">
+            <Label text="Movimientos de stock" styleClass="page-title"/>
+            <Label text="Registra entradas y salidas y conserva un historial trazable." styleClass="page-subtitle"/>
+        </VBox>
+
+        <!-- Sección de Registro de Movimientos -->
+        <HBox spacing="18">
+            <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                <Label text="Registrar movimiento" styleClass="card-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="100"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <children>
+                        <!-- Fila 0: Producto -->
+                        <Label text="Producto *" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="cmbProducto" maxWidth="Infinity" promptText="Selecciona un producto" styleClass="combo-box" GridPane.columnIndex="1"/>
+
+                        <!-- Fila 1: Tipo -->
+                        <Label text="Tipo *" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="cmbTipo" maxWidth="Infinity" styleClass="combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                        <!-- Fila 2: Cantidad -->
+                        <Label text="Cantidad *" GridPane.rowIndex="2"/>
+                        <TextField fx:id="txtCantidad" promptText="Ej. 20" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                        <!-- Fila 3: Observación -->
+                        <Label text="Observación" GridPane.rowIndex="3"/>
+                        <TextField fx:id="txtObservacion" promptText="Ej. Producción de la mañana" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    </children>
+                </GridPane>
+
+                <Button text="Registrar movimiento" onAction="#registrar" styleClass="primary"/>
+            </VBox>
+        </HBox>
+
+        <!-- Sección de Historial Reciente (Tabla) -->
+        <VBox spacing="10" styleClass="card" VBox.vgrow="ALWAYS">
+            <!-- Barra de Herramientas / Filtros -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Historial reciente" styleClass="card-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtBuscar" promptText="Buscar por producto" onKeyReleased="#filtrar" styleClass="text-field"/>
+                <ComboBox fx:id="cmbFiltroTipo" onAction="#filtrar" prefWidth="120" styleClass="combo-box"/>
+                <Button text="Limpiar" onAction="#limpiar" styleClass="secondary"/>
+            </HBox>
+
+            <!-- Tabla de Datos -->
+            <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID"/>
+                    <TableColumn fx:id="colProducto" text="Producto"/>
+                    <TableColumn fx:id="colTipo" text="Tipo"/>
+                    <TableColumn fx:id="colCantidad" text="Cantidad"/>
+                    <TableColumn fx:id="colFecha" text="Fecha"/>
+                    <TableColumn fx:id="colObs" text="Observación"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+
+    </VBox>
+</AnchorPane>
